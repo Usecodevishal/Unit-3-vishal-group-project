@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./vishalStyle/cart.css">
+
+</head>
+<body>
+    <h1 class="title">Shopping Cart</h1>
+    <div id="products_container"></div>
+    <div id="base_function">
+        <div><h3><b><a>continue shopping</a></b></h3></div>
+        <div id="deleteBox">
+            <img id="delete_all_trash"onClick="deleteAll()" src="file:///C:/Users/vivek/Downloads/trash-solid.svg"/>
+            <h3><b>clear shopping cart</b></h3></div>
+    </div>
+    <div id="view_total_box">
+        <div id="subtotal">Subtotal:</div>
+        <div id="grandtotal"></div>
+        <button id="check_btn"><a style="color:white;" href="checkout.html">Proceed to checkout</a></button>
+    </div>
+</body>
+</html>
+
+<script>
+    let himalaya=JSON.parse(localStorage.getItem("himalayadata")) || [];
+    console.log(himalaya);
+
+    let totalCost=himalaya.reduce(function(sum,elem,index,arr){
+        return sum + Number(elem.price);
+    },0);
+
+    console.log(Number(totalCost));
+    let GrandTotal=document.getElementById("grandtotal");
+    GrandTotal.innerText="Grand Total$"+totalCost;
+
+    let bigBox=document.getElementById("products_container");
+
+    himalaya.map(function(el,index){
+        let view_pro_box=document.createElement("div");
+        view_pro_box.setAttribute("id","pro_box");
+
+        let remove_icon=document.createElement("img");
+        remove_icon.src="file:///C:/Users/vivek/Downloads/trash-solid.svg"
+        remove_icon.setAttribute("id","deleteIcon");
+        remove_icon.addEventListener("click",function(){
+            deletePro(index);
+        })
+
+
+        let Image=document.createElement("img");
+        Image.setAttribute("id","product_image");
+        Image.src=el.image;
+
+
+        let Name=document.createElement("h2");
+        
+        let anchor=document.createElement("a");
+        anchor.innerText=el.name;
+        anchor.href="Discription.html";
+
+        let costBox=document.createElement("div");
+        costBox.style="display:flex";
+
+        
+
+        let cost=document.createElement("p");
+        cost.innerText=el.price;
+        cost.setAttribute("class","pro_cost");
+
+        costBox.append(cost)
+
+        Name.append(anchor);
+
+        let btnBox=document.createElement("div");
+        btnBox.setAttribute("id","plusMinus");
+
+        let plus=document.createElement("button");
+        plus.setAttribute("id","plus_minus");
+        plus.addEventListener("click",function(){
+            Plus();
+        })
+        plus.innerText="+";
+
+        let quantity_pro=document.createElement("h4");
+        quantity_pro.setAttribute("id","count_of_products");
+        quantity_pro.innerText=1;
+
+
+        let minus=document.createElement("button");
+        minus.setAttribute("id","minus_plus");
+        minus.addEventListener("click",function(){
+            Minus();
+        })
+        minus.innerText="-";
+
+        btnBox.append(plus,quantity_pro,minus)
+
+        view_pro_box.append(remove_icon,Image,Name,costBox,btnBox);
+
+        bigBox.append(view_pro_box);
+        
+    });
+
+     deletePro = (index) =>{
+        himalaya.splice(index,1);
+        console.log(himalaya);
+        localStorage.setItem("himalayadata",JSON.stringify(himalaya));
+        window.location.reload();
+    }
+//let count=document.getElementById("count_of_products").innerText;
+let count=1;
+    function Plus(){
+        if(count>=1){
+            count++;
+            document.getElementById("count_of_products").innerText=count;
+        }
+        
+    }
+    function Minus(){
+        
+        if(count>=2){
+            count--;
+            document.getElementById("count_of_products").innerText=count;
+    }
+}
+
+function deleteAll(){
+    himalaya.splice(0,himalaya.length);
+    console.log(himalaya);
+    localStorage.setItem("himalayadata",JSON.stringify(himalaya));
+
+    window.location.reload();
+}
+
+
+</script>

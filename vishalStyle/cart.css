@@ -1,0 +1,99 @@
+*{
+    font-family:Poppins,sans-serif;
+}
+.title{
+    color:#333333;
+    text-align: center;
+}
+#products_container{
+    width:90%;
+}
+#pro_box{
+    display:flex;
+    margin:auto;
+    justify-content: space-evenly;
+    align-items: center;
+    width:1170px;
+    height:300px;
+    border-bottom:1px solid teal;
+}
+#deleteIcon{
+    width:30px;
+    height:30px;
+}
+#delete_all_trash{
+    width:30px;
+    height:30px;
+}
+#product_image{
+    width:20%;
+    height:90%;
+}
+#plusMinus{
+    width:138px;
+    height:54px;
+    font-size: 20px;
+    background-color: #f8f8f8;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+#view_total_box{
+    width:570px;
+    height:230px;
+    float:right;
+    margin-top: 30px;
+    background-color: #66765f;
+    margin-right:30px;
+}
+#minus_plus{
+    width:30%;
+    height:100%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border:none;
+}
+#plus_minus{
+    width:30%;
+    height:100%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border:none;
+}
+#subtotal{
+    padding-top:20px;
+    font-size:24px;
+    color:white;
+    text-align:center;
+    margin:auto;
+}
+#grandtotal{
+    font-size:36px;
+    color:white;
+    text-align:center;
+    margin:auto;
+}
+.pro_cost{
+    font-size: 36px;
+    color:#a3b49b;
+}
+#base_function{
+    width:1170px;
+    height:61px;
+    display:flex;
+    justify-content: space-between;
+}
+#deleteBox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#check_btn{
+    width:490px;
+    height:44px;
+    color:white;
+    background-color: #a3b49b;
+    margin-left:30px;
+    border:thin;
+}
