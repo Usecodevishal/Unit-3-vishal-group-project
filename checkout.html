@@ -18,7 +18,7 @@
             <hr><p style="text-align: center;">OR</p><hr>
             <div id="option_payment">
                 <div><h2 class="heading">Contact information</h2></div>
-                <div><p id="login_link">Already have an account?<span><a href="/">Log in</a></span></p></div>
+                <div><p id="login_link">Already have an account?<span><a href="./login.html">Log in</a></span></p></div>
             </div>
             <input id="input_email_ph" type="text" type="number" placeholder="Email or Mobile Phone number"/>
             <h2 class="heading">Shipping address</h2>
@@ -53,10 +53,15 @@
         </div>
         <div id="check_right">
             <div id="check_right_box">
-                <div id="box_product_to_buy"></div>
+                <div id="box_product_to_buy">
+                </div>
             <div id="discountBox">
                 <input id="Discount"type="password" placeholder="Discount code"/>
                 <button id="apply"><b>Apply</b></button>
+            </div>
+            <div id="total_box">
+                <div><h4 >Total</h4></div>
+                <div><h4 id="h4_total"></h4></div>
             </div>
             </div>
             
@@ -99,5 +104,7 @@ let product_box=document.getElementById("box_product_to_buy");
 
       product_box.append(proBox);
   })
+  let totalprize=localStorage.getItem("himalayaTotal");
 
+document.getElementById("h4_total").innerText=totalprize;
 </script>

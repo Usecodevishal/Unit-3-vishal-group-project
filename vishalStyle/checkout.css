@@ -144,3 +144,9 @@ button{
     width:20%;
     height:80%;
 }
+#total_box{
+    width:90%;
+    height:100px;
+    display:flex;
+    justify-content:space-between;
+}

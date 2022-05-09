@@ -40,6 +40,10 @@
     let GrandTotal=document.getElementById("grandtotal");
     GrandTotal.innerText="Grand Total$"+totalCost;
 
+    localStorage.setItem("himalayaTotal",totalCost);
+
+    
+
     let bigBox=document.getElementById("products_container");
 
     himalaya.map(function(el,index){
