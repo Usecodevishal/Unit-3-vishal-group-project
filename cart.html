@@ -17,7 +17,7 @@
     <div id="base_function">
         <div><h3><b><a>continue shopping</a></b></h3></div>
         <div id="deleteBox">
-            <img id="delete_all_trash"onClick="deleteAll()" src="file:///C:/Users/vivek/Downloads/trash-solid.svg"/>
+            <img id="delete_all_trash"onClick="deleteAll()" src="trash-solid.svg"/>
             <h3><b>clear shopping cart</b></h3></div>
     </div>
     <div id="view_total_box">
@@ -51,7 +51,7 @@
         view_pro_box.setAttribute("id","pro_box");
 
         let remove_icon=document.createElement("img");
-        remove_icon.src="file:///C:/Users/vivek/Downloads/trash-solid.svg"
+        remove_icon.src="trash-solid.svg";
         remove_icon.setAttribute("id","deleteIcon");
         remove_icon.addEventListener("click",function(){
             deletePro(index);
